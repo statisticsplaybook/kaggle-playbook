@@ -19,8 +19,99 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-안녕하세요?
+R에서 캐글을 편하게 하기 위한 필수 R 패키지인 `pins`를 소개합니다.
+
+## 패키지 설치하기
+
+CRAN 정식 버전 설치는 다음과 같습니다.
+
+```{r eval=FALSE}
+# Install the released version from CRAN:
+install.packages("pins")
+```
+
+버그가 있을 경우, 혹은 최신 버전을 다운 받길 원하는 경우 github에서 직접 다운 받아 설치할 수 있습니다.
+
+```{r eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("rstudio/pins")
+```
+
+## 패키지 로드
+
+```{r}
+library(pins)
+```
+
+## token 등록하기
+
+캐글 API를 이용하기 위해서 캐글에 가입 후 [사용자 토큰(token)을 다운](https://www.kaggle.com/me/account) 받아 등록해놓아야 합니다. 토큰 생성을 누르면 json파일이 다운 받아질텐데, 그것을 등록하도록 합니다.
+
+```{r echo=FALSE}
+board_register_kaggle(token = "../../usertoken/kaggle.json")
+```
+
+```{r eval=FALSE}
+board_register_kaggle(token = "path/to/kaggle.json")
+```
+
+## 나만의 데이터 등록해서 사용하기
+
+팔머 펭귄 데이터를 캐글에 private으로 다음과 같이 등록할 수 있습니다.
+
+```{r eval=FALSE}
+library(palmerpenguins)
+
+# 현재 업데이트 중 함수 현재 안됨.
+pin(penguins, description = "The penguins data from R palmerpenguins", board = "kaggle")
+```
+
+올려진 데이터들은 자신의 캐글 아이디로 검색할 수 있습니다.
+
+```{r}
+pin_find("issactoast", board = "kaggle")
+```
+
+올려놓은 private 데이터 중 첫번째 데이터를 불러옵니다. 이렇게 되면 현재 로컬 컴퓨터에 자료가 다운이 받아서 캐글 사이트에 접속할 필요없이 작업할 수 있게 됩니다.
+
+```{r}
+pin_get("actuariallossestimation", board = "kaggle")
+```
+
+
+## 캐글 데이터 찾기
+
+캐글에 등록되어 있는 데이터 중 `prediction`가 들어간 데이터셋을 다음과 같이 검색도 해보고, 자세한 정보도 볼 수 있습니다.
+
+```{r}
+head(pin_find("prediction", board = "kaggle"))
+```
+```{r}
+pin_info("divorce-prediction", board = "kaggle")
+```
+
+## 캐글 대회 데이터 찾기
+
+대회의 경우 `c/` 가 붙어있습니다. Crowdflower Search Results Relevance 대회와 관련한 데이터를 검색해봅시다.
+
+* 대회 페이지: https://www.kaggle.com/c/crowdflower-search-relevance
+
+```{r}
+pin_find("c/crowdflower", board = "kaggle")
+```
+
+대회의 자세한 정보도 `pin_info`를 사용하여 접근 가능합니다.
+
+```{r}
+pin_info("c/crowdflower-search-relevance", board = "kaggle")
+```
+
+맞는 데이터인지 확인 했으므로, 데이터를 로컬 컴퓨터로 다운 받습니다.
+
+```{r}
+pin_get("c/crowdflower-search-relevance", board = "kaggle")
+```
 

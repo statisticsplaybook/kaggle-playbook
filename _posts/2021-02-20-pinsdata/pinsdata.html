@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["pinsdata_files/anchor-4.2.2/anchor.min.js","pinsdata_files/bowser-1.9.3/bowser.min.js","pinsdata_files/distill-2.2.21/template.v2.js","pinsdata_files/header-attrs-2.7/header-attrs.js","pinsdata_files/jquery-1.11.3/jquery.min.js","pinsdata_files/popper-2.6.0/popper.min.js","pinsdata_files/tippy-6.2.7/tippy-bundle.umd.min.js","pinsdata_files/tippy-6.2.7/tippy-light-border.css","pinsdata_files/tippy-6.2.7/tippy.css","pinsdata_files/tippy-6.2.7/tippy.umd.min.js","pinsdata_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1482,8 +1482,286 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>안녕하세요?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>R에서 캐글을 편하게 하기 위한 필수 R 패키지인 <code>pins</code>를 소개합니다.</p>
+<h2 id="패키지-설치하기">패키지 설치하기</h2>
+<p>CRAN 정식 버전 설치는 다음과 같습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Install the released version from CRAN:</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"pins"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>버그가 있을 경우, 혹은 최신 버전을 다운 받길 원하는 경우 github에서 직접 다운 받아 설치할 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># install.packages("remotes")</span>
+<span class='fu'>remotes</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"rstudio/pins"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="패키지-로드">패키지 로드</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/pins'>pins</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="token-등록하기">token 등록하기</h2>
+<p>캐글 API를 이용하기 위해서 캐글에 가입 후 <a href="https://www.kaggle.com/me/account">사용자 토큰(token)을 다운</a> 받아 등록해놓아야 합니다. 토큰 생성을 누르면 json파일이 다운 받아질텐데, 그것을 등록하도록 합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/board_register_kaggle.html'>board_register_kaggle</a></span><span class='op'>(</span>token <span class='op'>=</span> <span class='st'>"path/to/kaggle.json"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="나만의-데이터-등록해서-사용하기">나만의 데이터 등록해서 사용하기</h2>
+<p>팔머 펭귄 데이터를 캐글에 private으로 다음과 같이 등록할 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://allisonhorst.github.io/palmerpenguins/'>palmerpenguins</a></span><span class='op'>)</span>
+
+<span class='co'># 현재 업데이트 중 함수 현재 안됨.</span>
+<span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin.html'>pin</a></span><span class='op'>(</span><span class='va'>penguins</span>, description <span class='op'>=</span> <span class='st'>"The penguins data from R palmerpenguins"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>올려진 데이터들은 자신의 캐글 아이디로 검색할 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_find.html'>pin_find</a></span><span class='op'>(</span><span class='st'>"issactoast"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 3 x 4
+  name                            description              type  board
+  &lt;chr&gt;                           &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt;
+1 issactoast/actuariallossestima… Actuarial loss predicti… files kagg…
+2 issactoast/topic-info           topic_info               files kagg…
+3 issactoast/topicmodeling20      topicmodeling20          files kagg…</code></pre>
+</div>
+<p>올려놓은 private 데이터 중 첫번째 데이터를 불러옵니다. 이렇게 되면 현재 로컬 컴퓨터에 자료가 다운이 받아서 캐글 사이트에 접속할 필요없이 작업할 수 있게 됩니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_get.html'>pin_get</a></span><span class='op'>(</span><span class='st'>"actuariallossestimation"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;/home/issac/.cache/pins/kaggle/issactoast/actuariallossestimation/sample_submission.csv&quot;
+[2] &quot;/home/issac/.cache/pins/kaggle/issactoast/actuariallossestimation/test.csv/test.csv&quot;    
+[3] &quot;/home/issac/.cache/pins/kaggle/issactoast/actuariallossestimation/train.csv/train.csv&quot;  </code></pre>
+</div>
+<h2 id="캐글-데이터-찾기">캐글 데이터 찾기</h2>
+<p>캐글에 등록되어 있는 데이터 중 <code>prediction</code>가 들어간 데이터셋을 다음과 같이 검색도 해보고, 자세한 정보도 볼 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_find.html'>pin_find</a></span><span class='op'>(</span><span class='st'>"prediction"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+  name                        description                  type  board
+  &lt;chr&gt;                       &lt;chr&gt;                        &lt;chr&gt; &lt;chr&gt;
+1 aaron7sun/stocknews         Daily News for Stock Market… files kagg…
+2 andrewmvd/divorce-predicti… Divorce Prediction           files kagg…
+3 andrewmvd/heart-failure-cl… Heart Failure Prediction     files kagg…
+4 anmolkumar/health-insuranc… Health Insurance Cross Sell… files kagg…
+5 anmolkumar/house-price-pre… House Price Prediction Chal… files kagg…
+6 avikasliwal/used-cars-pric… Used Cars Price Prediction   files kagg…</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_info.html'>pin_info</a></span><span class='op'>(</span><span class='st'>"divorce-prediction"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># Source: kaggle&lt;andrewmvd/divorce-prediction&gt; []
+# Description: Divorce Prediction
+# Properties:
+#   id: 807599
+#   subtitle: Uncover what makes relationships last or break
+#   tags:
+#   - ref:
+#     - social science
+#     - psychology
+#     - tabular data
+#     - culture and humanities
+#     competitionCount:
+#     - 0
+#     - 1
+#     - 112
+#     - 0
+#     datasetCount:
+#     - 2146
+#     - 521
+#     - 585
+#     - 85
+#     description:
+#     - Social science is the collection of disciplines studying how humans interact with
+#       each other.
+#     - Psychology is the study of how we use our brains (or don&#39;t) to interact with others.
+#       Humans are complicated and maybe data science can help us understand ourselves.
+#     - .na.character
+#     - What is it to be human? What activities and patterns of behavior define us and
+#       our societies? This tag will help you tackle these questions.
+#     fullPath:
+#     - subject &gt; people and society &gt; social science
+#     - subject &gt; people and society &gt; social science &gt; psychology
+#     - data type &gt; tabular data
+#     - subject &gt; culture and humanities
+#     isAutomatic:
+#     - no
+#     - no
+#     - no
+#     - no
+#     name:
+#     - social science
+#     - psychology
+#     - tabular data
+#     - culture and humanities
+#     scriptCount:
+#     - 315
+#     - 137
+#     - 707
+#     - 18
+#     totalCount:
+#     - 2461
+#     - 659
+#     - 1404
+#     - 103
+#   creatorName: Larxel
+#   creatorUrl: andrewmvd
+#   totalBytes: 4221
+#   url: https://www.kaggle.com/andrewmvd/divorce-prediction
+#   lastUpdated: &#39;2020-07-30T20:27:19.613Z&#39;
+#   downloadCount: 877
+#   isPrivate: no
+#   isReviewed: no
+#   isFeatured: no
+#   licenseName: Other (specified in description)
+#   ownerName: Larxel
+#   ownerRef: andrewmvd
+#   kernelCount: 7
+#   topicCount: 0
+#   viewCount: 8539
+#   voteCount: 53
+#   currentVersionNumber: 4
+#   usabilityRating: 1.0</code></pre>
+</div>
+<h2 id="캐글-대회-데이터-찾기">캐글 대회 데이터 찾기</h2>
+<p>대회의 경우 <code>c/</code> 가 붙어있습니다. Crowdflower Search Results Relevance 대회와 관련한 데이터를 검색해봅시다.</p>
+<ul>
+<li>대회 페이지: <a href="https://www.kaggle.com/c/crowdflower-search-relevance" class="uri">https://www.kaggle.com/c/crowdflower-search-relevance</a></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_find.html'>pin_find</a></span><span class='op'>(</span><span class='st'>"c/crowdflower"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 10 x 4
+   name                        description                 type  board
+   &lt;chr&gt;                       &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;
+ 1 awsaf49/ecommerce-search-r… eCommerce Search Result Re… files kagg…
+ 2 c/crowdflower-search-relev… Crowdflower Search Results… files kagg…
+ 3 c/crowdflower-weather-twit… Partly Sunny with a Chance… files kagg…
+ 4 crowdflower/first-gop-deba… First GOP Debate Twitter S… files kagg…
+ 5 crowdflower/handwritten-na… Handwritten Names           files kagg…
+ 6 crowdflower/narrativity-in… Narrativity in Scientific … files kagg…
+ 7 crowdflower/political-soci… Political Social Media Pos… files kagg…
+ 8 crowdflower/twitter-airlin… Twitter US Airline Sentime… files kagg…
+ 9 crowdflower/twitter-user-g… Twitter User Gender Classi… files kagg…
+10 humancomp/worker-activity-… Workers Browser Activity i… files kagg…</code></pre>
+</div>
+<p>대회의 자세한 정보도 <code>pin_info</code>를 사용하여 접근 가능합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_info.html'>pin_info</a></span><span class='op'>(</span><span class='st'>"c/crowdflower-search-relevance"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># Source: kaggle&lt;c/crowdflower-search-relevance&gt; []
+# Description: Crowdflower Search Results Relevance
+# Properties:
+#   id: 4407
+#   subtitle: .na.character
+#   tags:
+#   - ref:
+#     - tabular data
+#     - internet
+#     competitionCount:
+#     - 112
+#     - 18
+#     datasetCount:
+#     - 585
+#     - 5474
+#     description:
+#     - .na.character
+#     - An interconnected network of tubes that connects the entire world together. This
+#       tag covers a broad range of tags; anything from cryptocurrency to website analytics.
+#     fullPath:
+#     - data type &gt; tabular data
+#     - subject &gt; science and technology &gt; internet
+#     isAutomatic:
+#     - no
+#     - no
+#     name:
+#     - tabular data
+#     - internet
+#     scriptCount:
+#     - 707
+#     - 616
+#     totalCount:
+#     - 1404
+#     - 6108
+#   creatorName: .na.character
+#   creatorUrl: .na.character
+#   totalBytes: .na.integer
+#   url: https://www.kaggle.com/c/crowdflower-search-relevance
+#   lastUpdated: .na.character
+#   downloadCount: .na.integer
+#   isPrivate: .na
+#   isReviewed: .na
+#   isFeatured: .na
+#   licenseName: .na.character
+#   ownerName: .na.character
+#   ownerRef: .na.character
+#   kernelCount: 0
+#   topicCount: .na.integer
+#   viewCount: .na.integer
+#   voteCount: .na.integer
+#   currentVersionNumber: .na.integer
+#   files:
+#   - ~
+#   versions:
+#   - ~
+#   usabilityRating: .na.real
+#   deadline: &#39;2015-07-06T23:59:00Z&#39;
+#   category: Featured
+#   reward: $20,000
+#   organizationName: Figure Eight
+#   organizationRef: crowdflower
+#   teamCount: 1324
+#   userHasEntered: yes
+#   userRank: .na
+#   mergerDeadline: &#39;2015-06-29T23:59:00Z&#39;
+#   newEntrantDeadline: &#39;2015-06-29T23:59:00Z&#39;
+#   enabledDate: &#39;2015-05-11T20:56:45.417Z&#39;
+#   maxDailySubmissions: 5
+#   maxTeamSize: .na
+#   evaluationMetric: QuadraticWeightedKappa
+#   awardsPoints: yes
+#   isKernelsSubmissionsOnly: no
+#   submissionsDisabled: no</code></pre>
+</div>
+<p>맞는 데이터인지 확인 했으므로, 데이터를 로컬 컴퓨터로 다운 받습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/pins/man/pin_get.html'>pin_get</a></span><span class='op'>(</span><span class='st'>"c/crowdflower-search-relevance"</span>, board <span class='op'>=</span> <span class='st'>"kaggle"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;/home/issac/.cache/pins/kaggle/crowdflower-search-relevance/sampleSubmission.csv.zip&quot;
+[2] &quot;/home/issac/.cache/pins/kaggle/crowdflower-search-relevance/test.csv.zip&quot;            
+[3] &quot;/home/issac/.cache/pins/kaggle/crowdflower-search-relevance/train.csv.zip&quot;           </code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

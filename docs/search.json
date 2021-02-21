@@ -5,7 +5,7 @@
       "title": "Player Manual",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-02-20T22:37:21-05:00"
+      "last_modified": "2021-02-21T00:14:09-05:00"
     },
     {
       "path": "contribute.html",
@@ -13,7 +13,7 @@
       "description": "어떻게 나의 글을 투고할 수 있나요?",
       "author": [],
       "contents": "\n여러분의 글을 항상 기다리고 있습니다. 자신만의 캐글 경험을 공유해주세요~!\nKaggle playbook에 투고하시는 방법은 다음과 같습니다.\nHow to\nKaggle playbook의 레포를 자신의 깃허브로 fork합니다.\n_post 폴더에 Distill for R markdown을 사용하여 포스트를 합니다. 포스트 작성시 꼭 아래와 같은 글 설정을 해주시기 바랍니다.\nKaggle playbook 레포에 issue를 열어 저희에게 리뷰를 요청해주시면 됩니다.\nArticle metadata\n다음의 설정 파일을 참고하여, 자신의 포스트 설정을 해주시기 바랍니다.\n---\ntitle: \"나의 캐글 정복기\"\ndescription: |\n  특정 대회 베이스라인 잡아보기\nauthor:\n  - name: 글쓴이 이름\n    url: 자신의 블로그 주소\n    affiliation: 소속 기관\n    affiliation_url: 소속 기관\ndate: 01-17-2021\ncreative_commons: CC BY-NC-ND\nrepository_url: 관련 깃허브wnth\noutput:\n  distill::distill_article:\n    self_contained: false\n---\n\n\n\n",
-      "last_modified": "2021-02-20T22:37:21-05:00"
+      "last_modified": "2021-02-21T00:14:10-05:00"
     },
     {
       "path": "index.html",
@@ -21,7 +21,7 @@
       "description": "R 사용자를 위한 캐글 공략집\n",
       "author": [],
       "contents": "\n\n캐글러(KaggleR)들 모여라!\n본 사이트는 R을 사용하여 캐글 데이터 분석경연 대회를 참여하시는 모든 분들과 정보를 공유하고자 하는 목적에서 만들게 되었습니다.\n공략집 사용방법\n오른쪽 위에 매뉴얼을 클릭하시면, 다른 분들의 캐글 공략팁을 볼 수 있습니다.\n관련 스터디 참여방법\nR 사용자들의 캐글 대회 공략을 쉽게하기 위하여 슬기로운 통계생활의 슬랙에서 정기적인 스터디를 계획 중에 있습니다. 현재 1기를 모집 중에 있으니, 참여하시고 싶으신 분들은 슬랙에 가입 후 kaggler-with-r 채널에 들어오시면 됩니다.\n스터디 계획\n1주일 1회, 1시간, 10주 목표\n줌으로 모여 캐글 데이터로 분석 방법 공유합니다.\n스터디 참여원은 최소 1번의 발표를 진행합니다.\n만료된 쉬운 대회를 선정하여 차차 어려운 대회를 진행하려 합니다.\n다른 대회들에 있어서의 코드 재사용을 높히기 위하여 스터디의 내용을 코드북(Code book)화 시키려고 합니다.\n\n\n\n",
-      "last_modified": "2021-02-20T22:59:13-05:00"
+      "last_modified": "2021-02-21T00:14:10-05:00"
     }
   ],
   "collections": ["posts/posts.json"]

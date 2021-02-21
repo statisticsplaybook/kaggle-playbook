@@ -5,7 +5,7 @@
       "title": "Player Manuals",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-02-20T20:32:03-05:00"
+      "last_modified": "2021-02-20T20:36:34-05:00"
     },
     {
       "path": "contribute.html",
@@ -13,7 +13,7 @@
       "description": "어떻게 나의 글을 투고할 수 있나요?",
       "author": [],
       "contents": "\n여러분의 글을 항상 기다리고 있습니다. 자신만의 캐글 경험을 공유해주세요~!\nKaggle playbook에 투고하시는 방법은 다음과 같습니다.\nHow to\nKaggle playbook의 레포를 자신의 깃허브로 fork합니다.\n_post 폴더에 Distill for R markdown을 사용하여 포스트를 합니다. 포스트 작성시 꼭 아래와 같은 글 설정을 해주시기 바랍니다.\nKaggle playbook 레포에 issue를 열어 저희에게 리뷰를 요청해주시면 됩니다.\nArticle metadata\n다음의 설정 파일을 참고하여, 자신의 포스트 설정을 해주시기 바랍니다.\n---\ntitle: \"나의 캐글 정복기\"\ndescription: |\n  특정 대회 베이스라인 잡아보기\nauthor:\n  - name: 글쓴이 이름\n    url: 자신의 블로그 주소\n    affiliation: 소속 기관\n    affiliation_url: 소속 기관\ndate: 01-17-2021\ncreative_commons: CC BY-NC-ND\nrepository_url: 관련 깃허브wnth\noutput:\n  distill::distill_article:\n    self_contained: false\n---\n\n\n\n",
-      "last_modified": "2021-02-20T20:32:04-05:00"
+      "last_modified": "2021-02-20T20:36:35-05:00"
     },
     {
       "path": "index.html",
@@ -21,7 +21,7 @@
       "description": "R 사용자를 위한 캐글 공략집\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-02-20T20:32:04-05:00"
+      "last_modified": "2021-02-20T20:36:35-05:00"
     }
   ],
   "collections": ["posts/posts.json"]

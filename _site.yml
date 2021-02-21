@@ -13,9 +13,9 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Player Manuals"
+    - text: "Manual"
       href: blog.html
-    - text: "Contribute"
+    - text: "Contributing"
       href: contribute.html
-  search: false
+  search: true
 output: distill::distill_article

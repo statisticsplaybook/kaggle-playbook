@@ -17,6 +17,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR')
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon');
 
 html {
   /*-- Main font sizes --*/
@@ -35,7 +36,7 @@ html {
   --heading-font:    "Noto Sans KR" sans-serif;
   --mono-font:       "DM Mono", monospace;
   --body-font:       "Noto Serif KR", serif;
-  --navbar-font:     "Noto Sans KR" sans-serif;  /* websites + blogs only */
+  --navbar-font:     'Do Hyeon', sans-serif;  /* websites + blogs only */
 }
 
 /*-- ARTICLE METADATA --*/

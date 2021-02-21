@@ -1,0 +1,4 @@
+---
+title: "Player Manuals"  # any name you want here
+listing: posts # do this exactly
+---

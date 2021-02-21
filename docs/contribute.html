@@ -85,29 +85,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Kaggle playbook</title>
+  <title>Kaggle playbook: Contributing articles</title>
 
-  <meta property="description" itemprop="description" content="R 사용자를 위한 캐글 공략집"/>
+  <meta property="description" itemprop="description" content="어떻게 나의 글을 투고할 수 있나요?"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Kaggle playbook"/>
+  <meta property="og:title" content="Kaggle playbook: Contributing articles"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="R 사용자를 위한 캐글 공략집"/>
+  <meta property="og:description" content="어떻게 나의 글을 투고할 수 있나요?"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Kaggle playbook"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Kaggle playbook"/>
-  <meta property="twitter:description" content="R 사용자를 위한 캐글 공략집"/>
+  <meta property="twitter:title" content="Kaggle playbook: Contributing articles"/>
+  <meta property="twitter:description" content="어떻게 나의 글을 투고할 수 있나요?"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Kaggle playbook"]},{"type":"character","attributes":{},"value":["R 사용자를 위한 캐글 공략집\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Contributing articles"]},{"type":"character","attributes":{},"value":["어떻게 나의 글을 투고할 수 있나요?"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2107,7 +2107,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Kaggle playbook","description":"R 사용자를 위한 캐글 공략집","authors":[]}
+{"title":"Contributing articles","description":"어떻게 나의 글을 투고할 수 있나요?","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2130,15 +2130,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Kaggle playbook</h1>
+<h1>Contributing articles</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>R 사용자를 위한 캐글 공략집</p></p>
+<p><p>어떻게 나의 글을 투고할 수 있나요?</p></p>
 </div>
 
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>여러분의 글을 항상 기다리고 있습니다. 자신만의 캐글 경험을 공유해주세요~!</p>
+<p>Kaggle playbook에 투고하시는 방법은 다음과 같습니다.</p>
+<h1 id="how-to">How to</h1>
+<ol type="1">
+<li><p><a href="https://github.com/statisticsplaybook/kaggle-playbook">Kaggle playbook의 레포</a>를 자신의 깃허브로 fork합니다.</p></li>
+<li><p><code>_post</code> 폴더에 <code>Distill for R markdown</code>을 사용하여 포스트를 합니다. 포스트 작성시 꼭 아래와 같은 <a href="#article-metadata">글 설정</a>을 해주시기 바랍니다.</p></li>
+<li><p>Kaggle playbook 레포에 <a href="https://github.com/statisticsplaybook/kaggle-playbook/issues">issue</a>를 열어 저희에게 리뷰를 요청해주시면 됩니다.</p></li>
+</ol>
+<h2 id="article-metadata">Article metadata</h2>
+<p>다음의 설정 파일을 참고하여, 자신의 포스트 설정을 해주시기 바랍니다.</p>
+<pre><code>---
+title: &quot;나의 캐글 정복기&quot;
+description: |
+  특정 대회 베이스라인 잡아보기
+author:
+  - name: 글쓴이 이름
+    url: 자신의 블로그 주소
+    affiliation: 소속 기관
+    affiliation_url: 소속 기관
+date: 01-17-2021
+creative_commons: CC BY-NC-ND
+repository_url: 관련 깃허브wnth
+output:
+  distill::distill_article:
+    self_contained: false
+---</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

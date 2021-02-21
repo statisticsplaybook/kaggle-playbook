@@ -1,0 +1,26 @@
+---
+title: "`pins` 패키지를 사용한 캐글 데이터 연동"
+description: |
+  pins 패키지를 이용하여 Kaggle 데이터 연결하는 방법에 대하여 알아봅니다.
+author:
+  - name: Issac Lee
+    url: https://www.theissaclee.com/ko/
+    affiliation: 슬기로운통계생활
+    affiliation_url: https://www.youtube.com/c/statisticsplaybook
+categories:
+  - pins
+  - data
+date: 02-20-2021
+creative_commons: CC BY-NC-ND
+repository_url: ""
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+안녕하세요?
+

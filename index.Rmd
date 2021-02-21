@@ -1,7 +1,7 @@
 ---
-title: "kaggle-playbook"
+title: "Kaggle playbook"
 description: |
-  Welcome to the website. I hope you enjoy it!
+  R 사용자를 위한 캐글 공략집
 site: distill::distill_website
 ---
 

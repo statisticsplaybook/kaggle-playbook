@@ -1,12 +1,21 @@
 name: "."
-title: "kaggle-playbook"
+title: "Kaggle playbook"
 description: |
-  kaggle-playbook
+  R 사용자를 위한 캐글 공략집 
 output_dir: "docs"
+theme: theme.css
+collections:
+  posts:
+    categories: true
+    categories_metadata: true
+    authors_metadata: true
 navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Player Manuals"
+      href: blog.html
+    - text: "Contribute"
+      href: contribute.html
+  search: false
 output: distill::distill_article

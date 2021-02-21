@@ -1,0 +1,45 @@
+---
+title: "Contributing articles"
+description: |
+  어떻게 나의 글을 투고할 수 있나요?
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+여러분의 글을 항상 기다리고 있습니다. 자신만의 캐글 경험을 공유해주세요~! 
+
+Kaggle playbook에 투고하시는 방법은 다음과 같습니다.
+
+# How to
+
+1. [Kaggle playbook의 레포](https://github.com/statisticsplaybook/kaggle-playbook)를 자신의 깃허브로 fork합니다.
+
+1. `_post` 폴더에 `Distill for R markdown`을 사용하여 포스트를 합니다. 포스트 작성시 꼭 아래와 같은 [글 설정](#article-metadata)을 해주시기 바랍니다.
+
+1. Kaggle playbook 레포에  [issue](https://github.com/statisticsplaybook/kaggle-playbook/issues)를 열어 저희에게 리뷰를 요청해주시면 됩니다.
+
+## Article metadata
+
+다음의 설정 파일을 참고하여, 자신의 포스트 설정을 해주시기 바랍니다.
+
+```
+---
+title: "나의 캐글 정복기"
+description: |
+  특정 대회 베이스라인 잡아보기
+author:
+  - name: 글쓴이 이름
+    url: 자신의 블로그 주소
+    affiliation: 소속 기관
+    affiliation_url: 소속 기관
+date: 01-17-2021
+creative_commons: CC BY-NC-ND
+repository_url: 관련 깃허브wnth
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```
+
